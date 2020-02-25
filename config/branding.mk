@@ -2,17 +2,17 @@
 DU_BASE_VERSION = v14.0
 
 ifndef DU_BUILD_TYPE
-    DU_BUILD_TYPE := UNOFFICIAL
+    DU_BUILD_TYPE := RCSTAR6696
 endif
 
 # Only include DU-Updater for official, weeklies, and rc builds
-ifeq ($(filter-out OFFICIAL WEEKLIES RC,$(DU_BUILD_TYPE)),)
+ifeq ($(filter-out OFFICIAL WEEKLIES RC RCSTAR6696,$(DU_BUILD_TYPE)),)
     PRODUCT_PACKAGES += \
         DU-Updater
 endif
 
 # Sign builds if building an official or weekly build
-ifeq ($(filter-out OFFICIAL WEEKLIES,$(DU_BUILD_TYPE)),)
+ifeq ($(filter-out OFFICIAL WEEKLIES RCSTAR6696,$(DU_BUILD_TYPE)),)
     PRODUCT_DEFAULT_DEV_CERTIFICATE := $(KEYS_LOCATION)
 endif
 
